@@ -10,7 +10,7 @@ b_body = 0.75
 for alpha in range(0, 11, 1):
     queryParam = ' -r ' \
                  '-Dterrier.index.path={index} ' \
-                 '-Dtrec.topics={query} ' \
+                 '-Dtrec.topics={queryfile} ' \
                  '-DTrecQueryTags.doctag=top ' \
                  '-DTrecQueryTags.process=top,num,title ' \
                  '-DTrecQueryTags.idtag=num ' \
@@ -20,7 +20,7 @@ for alpha in range(0, 11, 1):
                  '-Dtrec.results.file={prefix_run}{file_id}.run ' \
                  '-Dc.0={b_title} -Dc.1={b_body} ' \
                  '-Dw.0={w_title} -Dw.1={w_body}'.\
-            format(index=path_index, query=path_query, prefix_run=prefix_run, file_id=alpha,
+            format(index=path_index, queryfile=path_query, prefix_run=prefix_run, file_id=alpha,
                    b_title=b_title, b_body=b_body,
                    w_title=alpha, w_body=10-alpha)
     subprocess.call(path_terrier + queryParam, shell=True)

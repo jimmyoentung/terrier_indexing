@@ -41,7 +41,7 @@ mkdir clueweb12b
 
 
 /tools/terrier-4.0/bin/trec_terrier.sh -i -j
--Dterrier.index.path=/Volumes/ext/indeces/clueweb12_fields_terrier/clueweb12b13_fielded_stoplist_TRv2PorterStemmer
+-Dterrier.index.path=/volumes/data/tools/terrier-4.2/var/index/clueweb12b/
 -Dcollection.spec=/Volumes/ext/indeces/terrier/collection.spec.clueweb12b13
 -DFieldTags.process=TITLE,BODY
 -Dtrec.collection.class=WARC10Collection
