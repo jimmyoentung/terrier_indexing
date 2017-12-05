@@ -26,8 +26,10 @@ func main() {
 	}
 
 	// regex patterns
-	reglimit := regexp.MustCompile("(?s)<\\/HEADLINE>.*<TEXT>")
-	regstart := regexp.MustCompile("<HEADLINE>")
+	//reglimit := regexp.MustCompile("(?s)<\\/HEADLINE>.*<TEXT>")
+	regendhead := regexp.MustCompile("</HEADLINE>")
+	regstarttext := regexp.MustCompile("<TEXT>")
+	regstarthead := regexp.MustCompile("<HEADLINE>")
 
 	// setup goroutine pool
 	numCPUs := runtime.NumCPU()
@@ -40,8 +42,10 @@ func main() {
 		foo := getStringFromFile(mergeDir + "/" + input)
 
 		// merge fields
-		merged := reglimit.ReplaceAllString(foo, "")
-		merged = regstart.ReplaceAllString(merged, "<TEXT>")
+		merged := regendhead.ReplaceAllString(foo, "")
+		merged = regstarttext.ReplaceAllString(merged, "")
+		//merged := reglimit.ReplaceAllString(foo, "")
+		merged = regstarthead.ReplaceAllString(merged, "<TEXT>")
 
 		// zip and write new file
 		var b bytes.Buffer
