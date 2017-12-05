@@ -19,10 +19,18 @@ func main() {
 	mergeDir := os.Args[1]
 	newDir := createDirectory(mergeDir + "MERGED")
 
-	// files
+	// get list of files in directory
 	files, err := ioutil.ReadDir(mergeDir)
 	if err != nil {
 		log.Fatal(err)
+	}
+
+	// remove files that are not of .gz format
+	for i := 0; i < len(files); i++ {
+		if files[i].Name()[len(files[i].Name())-3:] != ".gz" {
+			fmt.Println(files[i].Name()[len(files[i].Name())-3:])
+			files = append(files[:i], files[i+1:]...)
+		}
 	}
 
 	// regex patterns
@@ -65,7 +73,7 @@ func main() {
 	// perform all merges
 	for i := 0; i < len(files); i++ {
 		go func(index int) {
-			fmt.Println(files[index].Name())
+			fmt.Println("Starting " + files[index].Name())
 			value, _ := pool.SendWork(files[index].Name())
 			fmt.Println("Finished " + value.(string))
 
@@ -98,7 +106,10 @@ func getStringFromFile(file string) string {
 	buff := bytes.NewBuffer(b)
 	r, err := gzip.NewReader(buff)
 	data, err := ioutil.ReadAll(r)
-	log.Println(string(data))
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	return string(data)
 }
 
