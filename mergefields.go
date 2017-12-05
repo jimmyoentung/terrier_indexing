@@ -9,6 +9,7 @@ import (
 	"os"
 	"regexp"
 	"runtime"
+	"strings"
 	"sync"
 
 	"github.com/jeffail/tunny"
@@ -17,7 +18,7 @@ import (
 func main() {
 	// directory of files to perform merge on
 	mergeDir := os.Args[1]
-	newDir := createDirectory(mergeDir + "MERGED")
+	newDir := createDirectory(mergeDir)
 
 	// get list of files in directory
 	files, err := ioutil.ReadDir(mergeDir)
@@ -85,15 +86,20 @@ func main() {
 }
 
 func createDirectory(dir string) string {
-	path := dir
-	err := os.MkdirAll(path, 0711)
+	// compose name for new merged dir
+	pieces := strings.Split(dir, "/")
+	pieces[1] += "_MERGED"
+	path := strings.Join(pieces, "/")
+	fmt.Println(path)
 
+	// create dir
+	err := os.MkdirAll(path, 0711)
 	if err != nil {
 		log.Println("Error creating directory")
 		log.Println(err)
 	}
 
-	return dir
+	return path
 }
 
 func getStringFromFile(file string) string {
