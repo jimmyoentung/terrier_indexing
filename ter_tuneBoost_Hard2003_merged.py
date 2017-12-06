@@ -20,4 +20,4 @@ for beta in range(0, 101, 5):
                  '-Dw.0=1 '.\
             format(index=path_index, queryfile=path_query, prefix_run=prefix_run, file_id=beta, weight=beta/100)
     subprocess.call(path_terrier + queryParam, shell=True)
-    print('finished:{}'.format(alpha))
+    print('finished:{}'.format(beta))
