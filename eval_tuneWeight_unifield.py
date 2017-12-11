@@ -83,11 +83,12 @@ fw = open(dataPath + resultFile, 'w')
 fw.write("schema" + " " + "alpha" + " " + " QueryNum"+ " " + "map" + " " + "p10" + " " + "ndcg10" + " " + "ndcg1000" +
          " " + "bpref" + " " + "unjudged" + " " + "relString" + " " + "rr""\n")
 
-p = multiprocessing.Pool(processes=5)
-resultString = p.map(eval, fileNames)
-for res in resultString:
-    fw.write(res)
-p.close()
-p.join()
+if os.path.exists(qrelPath):
+    p = multiprocessing.Pool(processes=5)
+    resultString = p.map(eval, fileNames)
+    for res in resultString:
+        fw.write(res)
+    p.close()
+    p.join()
 
-fw.close()
+    fw.close()
