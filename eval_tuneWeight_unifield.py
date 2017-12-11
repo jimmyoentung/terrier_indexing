@@ -26,7 +26,7 @@ elif dataSet == "CLEF2016":
 elif dataSet == "HARD2003":
     qrelPath = "/volumes/ext/data/hard2003_eval/qrels.actual.03.txt"
     topPrefix = "ter_hard2003_merged_b"
-    resultFile = "ter_hard2003_tuneWeight.eval"
+    resultFile = "ter_hard2003_tuneWeight_unifield.eval"
 elif dataSet == "HARD2005":
     qrelPath = "/volumes/data/phd/data/aquaint_eval/TREC2005.qrels.txt"
     topPrefix = 'ter_hard2005_a'
@@ -77,6 +77,7 @@ def eval(fname):
     return resultString
 
 fileNames = glob.glob(dataPath + topPrefix + "*.run")
+print(fileNames.count)
 
 fw = open(dataPath + resultFile, 'w')
 fw.write("schema" + " " + "alpha" + " " + " QueryNum"+ " " + "map" + " " + "p10" + " " + "ndcg10" + " " + "ndcg1000" +
