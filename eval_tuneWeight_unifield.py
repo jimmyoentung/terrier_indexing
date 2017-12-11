@@ -33,8 +33,8 @@ elif dataSet == "HARD2005":
     resultFile = "ter_hard2005_tuneWeight.eval"
 
 
-trecPath = "/Volumes/Data/tools/trec_eval.9.0/"
-dataPath = '/Volumes/Data/Github/ipm2017_fielded_retrieval/data/terrier/'
+trecPath = "/volumes/ext/tools/trec_eval.9.0/"
+dataPath = '/Volumes/ext/liam/ter_hard2003_merged_results/'
 
 
 def eval(fname):
