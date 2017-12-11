@@ -77,7 +77,7 @@ def eval(fname):
     return resultString
 
 fileNames = glob.glob(dataPath + topPrefix + "*.run")
-print(fileNames.count)
+print(len(fileNames))
 
 fw = open(dataPath + resultFile, 'w')
 fw.write("schema" + " " + "alpha" + " " + " QueryNum"+ " " + "map" + " " + "p10" + " " + "ndcg10" + " " + "ndcg1000" +
