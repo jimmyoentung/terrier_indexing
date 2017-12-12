@@ -41,7 +41,7 @@ func main() {
 	regstarthead := regexp.MustCompile("<HEADLINE>")
 
 	// setup goroutine pool
-	numCPUs := runtime.NumCPU()
+	numCPUs := 5                    //runtime.NumCPU()
 	runtime.GOMAXPROCS(numCPUs + 1) // numCPUs hot threads + one for async tasks.
 
 	pool, _ := tunny.CreatePool(numCPUs, func(object interface{}) interface{} {

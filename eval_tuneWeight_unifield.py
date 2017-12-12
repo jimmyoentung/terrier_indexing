@@ -34,14 +34,13 @@ elif dataSet == "HARD2005":
 
 
 trecPath = "/volumes/ext/tools/trec_eval.9.0/"
-dataPath = '/Volumes/ext/liam/ter_hard2003_merged_results/'
+dataPath = 'data/'
 
 
 def eval(fname):
     trecResults = subprocess.getoutput(trecPath +
                                      'trec_eval -q -m map -m P.10 -m ndcg_cut.10,1000 -m bpref -m relstring.10 '
                                      '-m recip_rank ' + qrelPath + " " + fname)
-    print(trecResults)
     filename = os.path.basename(fname)
     alpha = filename.replace(topPrefix,"").replace('.run','')
 
