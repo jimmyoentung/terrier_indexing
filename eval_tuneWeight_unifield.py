@@ -34,7 +34,7 @@ elif dataSet == "HARD2005":
 
 
 trecPath = "/volumes/ext/tools/trec_eval.9.0/"
-dataPath = '/Volumes/ext/liam/terrier_indexing/data/'
+dataPath = '/Volumes/ext/liam/ter_hard2003_merged_results/'
 
 
 def eval(fname):
@@ -42,7 +42,7 @@ def eval(fname):
                                      'trec_eval -q -m map -m P.10 -m ndcg_cut.10,1000 -m bpref -m relstring.10 '
                                      '-m recip_rank ' + qrelPath + " " + fname)
     filename = os.path.basename(fname)
-    alpha = filename.replace(topPrefix,"").replace('.run','')
+    beta = filename.replace(topPrefix,"").replace('.run','')
 
     map = p10 = ndcg10 = ndcg1000 = bpref = numUnjudged = rr = "*"
     relString = qNum = "*"
@@ -68,7 +68,7 @@ def eval(fname):
             elif measure == "ndcg_cut_1000":
                 ndcg1000 = score
 
-                resultString += filename + " " + alpha + " " + qNum + " " + map + " " + p10 + " " + ndcg10 + " " + \
+                resultString += filename + " " + beta + " " + qNum + " " + map + " " + p10 + " " + ndcg10 + " " + \
                                 ndcg1000 + " " + bpref + " " + str(numUnjudged) + " " + relString + " " + rr + "\n"
 
     print ("File name: {0} Completed".format(filename))
@@ -79,7 +79,7 @@ fileNames = glob.glob(dataPath + topPrefix + "*.run")
 print(len(fileNames))
 
 fw = open(dataPath + resultFile, 'w')
-fw.write("schema" + " " + "alpha" + " " + " QueryNum"+ " " + "map" + " " + "p10" + " " + "ndcg10" + " " + "ndcg1000" +
+fw.write("schema" + " " + "b" + " " + " QueryNum"+ " " + "map" + " " + "p10" + " " + "ndcg10" + " " + "ndcg1000" +
          " " + "bpref" + " " + "unjudged" + " " + "relString" + " " + "rr""\n")
 
 if os.path.exists(qrelPath):
