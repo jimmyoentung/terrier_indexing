@@ -34,7 +34,7 @@ elif dataSet == "HARD2005":
 
 
 trecPath = "/volumes/ext/tools/trec_eval.9.0/"
-dataPath = 'data/'
+dataPath = '/Volumes/ext/liam/terrier_indexing/data/'
 
 
 def eval(fname):
