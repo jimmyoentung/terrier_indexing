@@ -18,6 +18,37 @@ import (
 func main() {
 	// directory of files to perform merge on
 	mergeDir := os.Args[1]
+
+	// get list of files to merge
+	var realfiles []string
+	getGzs(mergeDir, &realfiles)
+
+}
+
+// Finds .gz files within given dir and all its children
+func getGzs(dir string, filelist *[]string) {
+	// get list of files in directory
+	files, err := ioutil.ReadDir(dir)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	for _, file := range files {
+		// recursively get files from child directories
+		if file.IsDir() {
+			getGzs(dir+"/"+file.Name(), filelist)
+		} else {
+			// if file is .gz then add to filelist
+			if file.Name()[len(file.Name())-3:] == ".gz" {
+				*filelist = append(*filelist, dir+"/"+file.Name())
+			}
+		}
+	}
+}
+
+func dothings() {
+	// directory of files to perform merge on
+	mergeDir := os.Args[1]
 	newDir := createDirectory(mergeDir)
 
 	// get list of files in directory
