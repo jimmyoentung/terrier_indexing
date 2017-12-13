@@ -19,6 +19,7 @@ func main() {
 	// directory of files to perform merge on
 	mergeDir := os.Args[1]
 
+	// new directory to output merged files
 	newDir := mergeDir + "_MERGED" //createDirectory(mergeDir)
 
 	// get list of files to merge
@@ -75,7 +76,7 @@ func main() {
 	wg := new(sync.WaitGroup)
 	wg.Add(len(files))
 
-	// perform all merges
+	// send merge tasks to goroutine pool
 	for _, file := range files {
 		go func(file string) {
 			fmt.Println("Starting " + file)
@@ -89,7 +90,7 @@ func main() {
 	wg.Wait()
 }
 
-// exists returns whether the given file or directory exists or not
+// Returns whether the given file or directory exists or not
 func exists(path string) (bool, error) {
 	_, err := os.Stat(path)
 	if err == nil {
@@ -101,7 +102,7 @@ func exists(path string) (bool, error) {
 	return true, err
 }
 
-// create dir
+// Creates specified dir
 func createDirectory(dir string) {
 	err := os.MkdirAll(dir, 0711)
 	if err != nil {
@@ -110,7 +111,7 @@ func createDirectory(dir string) {
 	}
 }
 
-// Finds .gz files within given dir and all its children
+// Finds .gz files within given dir and all of its children
 func getGzs(dir string, filelist *[]string) {
 	// get list of files in directory
 	files, err := ioutil.ReadDir(dir)
@@ -131,6 +132,7 @@ func getGzs(dir string, filelist *[]string) {
 	}
 }
 
+// Reads file contents as a string
 func getStringFromFile(file string) string {
 	// read in file
 	b, err := ioutil.ReadFile(file)
@@ -138,6 +140,7 @@ func getStringFromFile(file string) string {
 		log.Fatal(err)
 	}
 
+	// reads zipped contents
 	buff := bytes.NewBuffer(b)
 	r, err := gzip.NewReader(buff)
 	data, err := ioutil.ReadAll(r)
@@ -148,6 +151,7 @@ func getStringFromFile(file string) string {
 	return string(data)
 }
 
+// Writes a string value into a file
 func writeStringToFile(file string, content string) {
 	// open file to write data to
 	f, err := os.OpenFile(file, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0666)
