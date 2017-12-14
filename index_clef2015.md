@@ -11,32 +11,26 @@ Working directory where we will put all config and data is:
 ## 1. Generate collection.spec
 collection.spec specify list of source files to be indexed.
 ```bash
-find /Volumes/ext/data/ClueWeb12/DiskB/ -type f -name '*wb-*.warc.gz'| sort |grep -v info > /volumes/ext/indeces/terrierCollectionSpecs/collection_clueweb12b_wb.spec
+find /Volumes/ext/data/clef2015/ -type f -name '*'| sort |grep -v info > /Volumes/ext/liam/data/collection_clef2015.spec
 ```
 
 
 ## 2. Create folder to hold the index
 ```bash
 cd /volumes/ext/indeces/terrier-4.2/var/index
-mkdir clueweb12b
+mkdir clef2015
 ```
 
 ## 3. Index based on the generated collection.spec
 ```bash
 /volumes/ext/indeces/terrier-4.2/bin/trec_terrier.sh -i -j
--Dcollection.spec=/volumes/ext/indeces/terrierCollectionSpecs/collection_clueweb12b_wb.spec
--Dterrier.index.path=/volumes/ext/indeces/terrier-4.2/var/index/clueweb12b/
+-Dcollection.spec=/Volumes/ext/liam/data/collection_clef2015.spec
+-Dterrier.index.path=/volumes/ext/indeces/terrier-4.2/var/index/clef2015/
 -DFieldTags.process=TITLE,BODY
--Dtrec.collection.class=WARC10Collection
--Dindexer.meta.forward.keys=docno
--Dindexer.meta.forward.keylens=26
--Dindexer.meta.reverse.keys=docno
 -DTrecDocTags.skip=SCRIPT,STYLE
 -Dignore.empty.documents=true
 -Dstopwords.filename=stopword-list.txt
 -Dtermpipelines=Stopwords,PorterStemmer
--Dindexing.singlepass.max.documents.flush=10000
--Dindexing.max.docs.per.builder=1000000
 ```
 
 
