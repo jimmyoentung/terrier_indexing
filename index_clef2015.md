@@ -11,26 +11,19 @@ Working directory where we will put all config and data is:
 ## 1. Generate collection.spec
 collection.spec specify list of source files to be indexed.
 ```bash
-find /Volumes/ext/data/clef2015/ -type f -name '*'| sort |grep -v info > /Volumes/ext/liam/data/collection_clef2015.spec
+find /Volumes/ext/data/clef2015 -type f -name '*'| sort |grep -v info > /Volumes/ext/liam/data/collection_clef2015.spec
 ```
 
 
 ## 2. Create folder to hold the index
 ```bash
-cd /volumes/ext/indeces/terrier-4.2/var/index
+cd /Volumes/ext3/indeces/terrier-4.2/var/index
 mkdir clef2015
 ```
 
 ## 3. Index based on the generated collection.spec
 ```bash
-/volumes/ext/indeces/terrier-4.2/bin/trec_terrier.sh -i -j
--Dcollection.spec=/Volumes/ext/liam/data/collection_clef2015.spec
--Dterrier.index.path=/volumes/ext/indeces/terrier-4.2/var/index/clef2015/
--DFieldTags.process=TITLE,BODY
--DTrecDocTags.skip=SCRIPT,STYLE
--Dignore.empty.documents=true
--Dstopwords.filename=stopword-list.txt
--Dtermpipelines=Stopwords,PorterStemmer
+/Volumes/ext3/indeces/terrier-4.2/bin/trec_terrier.sh -i -j -Dcollection.spec=/Volumes/ext/liam/data/collection_clef2015.spec -Dterrier.index.path=/Volumes/ext3/indeces/terrier-4.2/var/index/clef2015/ -DFieldTags.process=TITLE,BODY -Dtrec.collection.class=SimpleFileCollection -Dindexing.simplefilecollection.extensionsparsers=txt:FileDocument,text:FileDocument,tex:FileDocument,bib:FileDocument,pdf:PDFDocument,html:HTMLDocument,htm:HTMLDocument,xhtml:HTMLDocument,html:TaggedDocument,doc:MSWordDocument,ppt:MSPowerpointDocument,xls:MSExcelDocument -Dindexing.simplefilecollection.defaultparser=HTMLDocument -Dindexer.meta.forward.keys=filename -Dindexer.meta.forward.keylens=256 -Dindexing.simplefilecollection.recurse=true -DTrecDocTags.skip=SCRIPT,STYLE -Dignore.empty.documents=true -Dstopwords.filename=stopword-list.txt -Dtermpipelines=Stopwords,PorterStemmer
 ```
 
 
