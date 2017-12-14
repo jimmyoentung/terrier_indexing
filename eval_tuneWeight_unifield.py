@@ -14,6 +14,8 @@ args = parser.parse_args()
 
 dataSet = args.dataset
 
+trecPath = "/volumes/ext/tools/trec_eval.9.0/"
+dataPath = '/Volumes/ext/liam/ter_hard2003_merged_results/'
 
 if dataSet == "CLEF2015":
     qrelPath = "/volumes/ext/data/clef2015_eval/qrels.eng.clef2015.test.graded.txt"
@@ -24,17 +26,15 @@ elif dataSet == "CLEF2016":
     topPrefix = "topTuneBoost_Clef2016_alpha"
     resultFile = "evalTuneBoost_Clef2016.txt"
 elif dataSet == "HARD2003":
+    dataPath = '/Volumes/ext/liam/ter_hard2003_merged_results/'
     qrelPath = "/volumes/ext/data/hard2003_eval/qrels.actual.03.txt"
     topPrefix = "ter_hard2003_merged_b"
     resultFile = "ter_hard2003_tuneWeight_unifield.eval"
 elif dataSet == "HARD2005":
+    dataPath = '/Volumes/ext/liam/ter_hard2005_merged_results/'
     qrelPath = "/volumes/data/phd/data/aquaint_eval/TREC2005.qrels.txt"
     topPrefix = 'ter_hard2005_a'
     resultFile = "ter_hard2005_tuneWeight.eval"
-
-
-trecPath = "/volumes/ext/tools/trec_eval.9.0/"
-dataPath = '/Volumes/ext/liam/ter_hard2003_merged_results/'
 
 
 def eval(fname):
