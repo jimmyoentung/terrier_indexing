@@ -58,6 +58,7 @@ func main() {
 		input = strings.Join(pieces, "/")
 		fmt.Println(input)
 
+		// create mirror directory if it doesn't exist
 		dirExists, _ := exists(newDir + "/" + input)
 		if !dirExists {
 			pieces = strings.Split(input, "/")
@@ -66,8 +67,8 @@ func main() {
 			createDirectory(newDir + "/" + path)
 		}
 
+		// write merged file and return its path
 		ioutil.WriteFile(newDir+"/"+input, b.Bytes(), 0666)
-
 		return newDir + "/" + input
 	}).Open()
 	defer pool.Close()
