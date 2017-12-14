@@ -34,7 +34,7 @@ elif dataSet == "HARD2005":
     dataPath = '/Volumes/ext/liam/ter_hard2005_merged_results/'
     qrelPath = "/Volumes/ext/data/aquaint_eval/TREC2005.qrels.txt"
     topPrefix = "ter_hard2005_merged_b"
-    resultFile = "ter_hard2005_tuneWeight.eval"
+    resultFile = "ter_hard2005_tuneWeight_unifield.eval"
 
 
 def eval(fname):
