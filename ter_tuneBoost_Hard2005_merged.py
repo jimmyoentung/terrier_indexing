@@ -1,9 +1,9 @@
 import subprocess
 
 path_terrier = '/Volumes/ext3/indeces/terrier-4.2/bin/trec_terrier.sh'
-path_index = '/Volumes/ext3/indeces/terrier-4.2/var/index/hard2003_merged/'
-path_query = '/Volumes/ext/data/hard2003_eval/03.topics.nometadata'
-prefix_run = '/Volumes/ext/liam/ter_hard2003_merged_results/ter_hard2003_merged_b'
+path_index = '/Volumes/ext3/indeces/terrier-4.2/var/index/hard2005_merged/'
+path_query = '/Volumes/ext/data/hard2003_eval/03.topics.nometadata' # TODO determine this dir
+prefix_run = '/Volumes/ext/liam/ter_hard2005_merged_results/ter_hard2005_merged_b'
 
 for beta in range(0, 101, 5):
     queryParam = ' -r ' \
