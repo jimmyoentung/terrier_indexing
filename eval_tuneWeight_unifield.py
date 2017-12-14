@@ -32,7 +32,7 @@ elif dataSet == "HARD2003":
     resultFile = "ter_hard2003_tuneWeight_unifield.eval"
 elif dataSet == "HARD2005":
     dataPath = '/Volumes/ext/liam/ter_hard2005_merged_results/'
-    qrelPath = "/volumes/data/phd/data/aquaint_eval/TREC2005.qrels.txt"
+    qrelPath = "/Volumes/ext/data/aquaint_eval/TREC2005.qrels.txt"
     topPrefix = 'ter_hard2005_a'
     resultFile = "ter_hard2005_tuneWeight.eval"
 
