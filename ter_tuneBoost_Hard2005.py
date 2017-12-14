@@ -2,7 +2,7 @@ import subprocess
 
 path_terrier = '/volumes/ext/indeces/terrier-4.2/bin/trec_terrier.sh'
 path_index = '/volumes/ext/indeces/terrier-4.2/var/index/aquaint/'
-path_query = '/volumes/ext/data/Aquaint_hardtrack_2005/2005_HardTrack.topics.txt'
+path_query = '/volumes/ext/data/topics/2005_HardTrack.topics.txt'
 prefix_run = '/volumes/ext/jimmy/experiments/ipm_fielded_retrieval/data/terrier/ter_hard2005_a'
 b_title = 0.75
 b_body = 0.75
