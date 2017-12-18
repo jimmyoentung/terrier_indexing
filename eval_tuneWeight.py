@@ -14,11 +14,13 @@ args = parser.parse_args()
 
 dataSet = args.dataset
 
+trecPath = "/Volumes/Data/tools/trec_eval.9.0/"
+dataPath = '/Volumes/ext/liam/ter_clef2015_results/'
 
 if dataSet == "CLEF2015":
-    qrelPath = "/volumes/ext/data/clef2015_eval/qrels.eng.clef2015.test.graded.txt"
-    topPrefix = "topTuneBoost_Clef2015_alpha"
-    resultFile = "evalTuneBoost_Clef2015.txt"
+    qrelPath = "/Volumes/ext/data/clef2015_eval/qrels.eng.clef2015.test.graded.txt"
+    topPrefix = "ter_clef2015_a"
+    resultFile = "ter_clef2015_tuneWeight.eval"
 elif dataSet == "CLEF2016":
     qrelPath = "/volumes/ext/data/clef2016_eval/task1.qrels.30Aug"
     topPrefix = "topTuneBoost_Clef2016_alpha"
@@ -31,10 +33,6 @@ elif dataSet == "HARD2005":
     qrelPath = "/volumes/data/phd/data/aquaint_eval/TREC2005.qrels.txt"
     topPrefix = 'ter_hard2005_a'
     resultFile = "ter_hard2005_tuneWeight.eval"
-
-
-trecPath = "/Volumes/Data/tools/trec_eval.9.0/"
-dataPath = '/Volumes/Data/Github/ipm2017_fielded_retrieval/data/terrier/'
 
 
 def eval(fname):
