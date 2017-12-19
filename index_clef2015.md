@@ -34,7 +34,7 @@ mkdir clef2015
 ```
 
 ```bash
-/Volumes/ext3/indeces/terrier-3.6/bin/trec_terrier.sh -i -j -Dcollection.spec=/Volumes/ext/liam/data/collection_clef2015.spec -Dterrier.index.path=/Volumes/ext3/indeces/terrier-3.6/var/index/clef2015/ -DFieldTags.process=TITLE,BODY -DTrecDocTags.skip=SCRIPT,STYLE -Dtermpipelines=Stopwords,PorterStemmer -Dtrec.collection.class=SimpleFileCollection -Dindexer.meta.forward.keys=filename -Dindexer.meta.forward.keylens=128 -Dindexing.simplefilecollection=TaggedDocument -Dindexer.meta.reverse.keys=filename -Dindexer.meta.reverse.keylens=128 -Dblock.indexing=true -Dblocks.size=1 -Dmax.term.length=30 -Dindexing.simplefilecollection.defaultparser=TaggedDocument
+/Volumes/ext3/indeces/terrier-3.6/bin/trec_terrier.sh -i -j -Dcollection.spec=/Volumes/ext/liam/data/collection_clef2015.spec -Dterrier.index.path=/Volumes/ext3/indeces/terrier-3.6/var/index/clef2015/ -DFieldTags.process=title,body -DTrecDocTags.skip=script,style -Dtermpipelines=Stopwords,PorterStemmer -Dtrec.collection.class=SimpleFileCollection -Dindexer.meta.forward.keys=filename -Dindexer.meta.forward.keylens=256 -Dindexing.simplefilecollection=TaggedDocument -Dindexer.meta.reverse.keys=filename -Dindexer.meta.reverse.keylens=256 -Dblock.indexing=true -Dblocks.size=1 -Dmax.term.length=30 -Dindexing.simplefilecollection.defaultparser=TaggedDocument
 ```
 
 
