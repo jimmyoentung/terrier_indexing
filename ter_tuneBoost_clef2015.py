@@ -1,7 +1,9 @@
 import subprocess
 
 path_terrier = '/Volumes/ext3/indeces/terrier-3.6/bin/trec_terrier.sh'
-path_index = '/Volumes/ext3/indeces/terrier-3.6/var/index/clef2015/'
+
+# NOTE: index has temporarily been changed to local version
+path_index = '/Volumes/ext3/indeces/terrier-3.6/var/index/clef2015local/'
 path_query = '/Volumes/ext/data/clef2015_eval/clef2015.test.queries-EN.txt'
 prefix_run = '/Volumes/ext/liam/ter_clef2015_results/ter_clef2015_a'
 b_title = 0.75
