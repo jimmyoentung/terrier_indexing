@@ -22,7 +22,7 @@ for beta in range(0, 101, 5):
                  '-DTrecQueryTags.idtag=num ' \
                  '-DTrecQueryTags.skip=desc,narr ' \
                  '-DTrecQueryTags.casesensitive=false ' \
-                 '-Dtrec.model=BM25F ' \
+                 '-Dtrec.model=BM25 ' \
                  '-Dtrec.results.file={prefix_run}{file_id}.run ' \
                  '-Dc.0={weight}' \
                  '-Dw.0=1'.\
