@@ -35,6 +35,11 @@ elif dataSet == "HARD2005":
     qrelPath = "/Volumes/ext/data/aquaint_eval/TREC2005.qrels.txt"
     topPrefix = "ter_hard2005_merged_b"
     resultFile = "ter_hard2005_tuneWeight_unifield.eval"
+elif dataSet == "WEB2013-2014":
+    dataPath = '/Volumes/ext/liam/ter_clueweb_merged_results/'
+    qrelPath = "/Volumes/ext/data/webTrack2013-2014_eval/qrels.adhoc2013-2014.txt"
+    topPrefix = "ter_web_merged_b"
+    resultFile = "ter_web_tuneWeight_unifield.eval"
 
 
 def eval(fname):
