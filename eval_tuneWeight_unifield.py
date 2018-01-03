@@ -22,9 +22,10 @@ if dataSet == "CLEF2015":
     topPrefix = "topTuneBoost_Clef2015_alpha"
     resultFile = "evalTuneBoost_Clef2015.txt"
 elif dataSet == "CLEF2016":
-    qrelPath = "/volumes/ext/data/clef2016_eval/task1.qrels.30Aug"
-    topPrefix = "topTuneBoost_Clef2016_alpha"
-    resultFile = "evalTuneBoost_Clef2016.txt"
+    dataPath = '/Volumes/ext/liam/ter_clef2016_merged_results/'
+    qrelPath = "/Volumes/ext/data/clef2016_eval/task1.qrels.30Aug"
+    topPrefix = "ter_clef2016_merged_b"
+    resultFile = "ter_clef2016_tuneWeight_unifield.eval"
 elif dataSet == "HARD2003":
     dataPath = '/Volumes/ext/liam/ter_hard2003_merged_results/'
     qrelPath = "/volumes/ext/data/hard2003_eval/qrels.actual.03.txt"
