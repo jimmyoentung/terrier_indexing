@@ -18,8 +18,8 @@ for beta in range(0, 101, 5):
                  '-Dterrier.index.path={index} ' \
                  '-Dtrec.topics={queryfile} ' \
                  '-DTrecQueryTags.doctag=top ' \
-                 '-DTrecQueryTags.process=top,num,title ' \
-                 '-DTrecQueryTags.idtag=num ' \
+                 '-DTrecQueryTags.process=query,id,title ' \
+                 '-DTrecQueryTags.idtag=id ' \
                  '-DTrecQueryTags.skip=desc,narr ' \
                  '-DTrecQueryTags.casesensitive=false ' \
                  '-Dtrec.model=BM25 ' \
