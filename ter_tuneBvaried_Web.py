@@ -1,10 +1,10 @@
 import subprocess
 import multiprocessing
 
-path_terrier = '/volumes/ext/indeces/terrier-4.2/bin/trec_terrier.sh'
-path_index = '/volumes/ext/indeces/terrier-4.2/var/index/clueweb12b/'
-path_query = '/volumes/ext/data/webtrack2013-2014_eval/web2013_2014_topics_Terrier.xml'
-prefix_run = '/volumes/ext/jimmy/experiments/ipm_fielded_retrieval/data/terrier/ter_tuneB_web_a'
+path_terrier = '/Volumes/ext3/indeces/terrier-4.2/bin/trec_terrier.sh'
+path_index = '/Volumes/ext3/indeces/terrier-4.2/var/index/clueweb12b/'
+path_query = '/Volumes/ext/data/webTrack2013-2014_eval/web2013_2014_topics_Terrier.xml'
+prefix_run = '/Volumes/ext/liam/ter_clueweb_results/ter_tuneB_web_a'
 
 def ter_search(query_param):
     subprocess.call(path_terrier + query_param, shell=True)
