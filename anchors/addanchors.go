@@ -15,6 +15,10 @@ import (
 )
 
 func main() {
+	if len(os.Args) < 2 {
+		fmt.Println("No directory specified...")
+	}
+
 	// directory of files to perform merge on
 	mergeDir := os.Args[1]
 
