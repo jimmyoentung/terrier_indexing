@@ -19,7 +19,7 @@ for b_title in range(0, 101, 5):
     for b_body in range(0, 101, 5):
         for alpha in range(0, 11, 1):
             # only create jobs for parameter combos not in completed_set
-            if (alpha, b_title, b_body) not in completed_set:
+            if (alpha, float(b_title)/100, float(b_body)/100) not in completed_set:
                 queryParam = ' -r ' \
                             '-Dterrier.index.path={index} ' \
                             '-Dtrec.topics={queryfile} ' \
